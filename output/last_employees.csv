@@ -1,0 +1,6 @@
+employee_id,username,name_surname,department,status
+10001,samira.cecen,Samira Cecen,finance,active
+10002,kadir.clsgn,Kadircan Calisgan,hr,active
+10003,samed.hacar,Samed Hacar,it,active
+10004,ayse.elma,Ayse Elma,data,terminated
+10005,kal.pel,Pelin Kal,it,active

@@ -4,6 +4,29 @@
 # SAMIRA – ONBOARDING
 # ------------------------------------------
 
+init_snapshot_if_needed() {
+    mkdir -p output/archives
+
+    if [ ! -f output/archives/last_employees.csv ]; then
+        echo "[INFO] No snapshot found. Creating initial snapshot."
+        cp employees.csv output/archives/last_employees.csv
+    else
+        echo "[INFO] Snapshot already exists."
+    fi
+}
+
+detect_changes() {
+    echo "[INFO] Detecting changes..."
+
+    > output/added_users.csv
+    > output/terminated_users.csv
+    > output/removed_users.csv
+
+    echo "username,department" > output/added_users.csv
+    echo "username" > output/terminated_users.csv
+    echo "username" > output/removed_users.csv
+}
+
 create_linux_user() {
     local username="$1"
     local department="$2"
@@ -36,7 +59,9 @@ onboard_active_employees() {
 }
 
 main() {
-    onboard_active_employees
+   init_snapshot_if_needed
+   detect_changes  
+   onboard_active_employees
 }
 
 main "$@"
