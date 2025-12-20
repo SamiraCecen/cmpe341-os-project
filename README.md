@@ -92,7 +92,7 @@ using the command below:
 
 chmod +x employee_lifecycle_sync.sh
 
-#Essential Things and Checks
+# Essential Things and Checks
 
 -This script has undergone rigorous testing under multiple conditions including
 adding new users, deleting current users, handling deactivated users, and
