@@ -1,103 +1,155 @@
 #!/bin/bash
 
-# ------------------------------------------
-# EMPLOYEE LIFECYCLE MANAGEMENT SCRIPT
-# ------------------------------------------
+# ------------------------------------------------------
+# CMPE341 – Employee Lifecycle Automation Script
+# ------------------------------------------------------
 
+mkdir -p output
+mkdir -p output/archives
+
+SNAPSHOT="output/archives/last_employees.csv"
+
+# ------------------------------------------------------
 # Initialize snapshot if it does not exist
-init_snapshot_if_needed() {
-    mkdir -p output/archives
-
-    if [ ! -f output/archives/last_employees.csv ]; then
-        echo "[INFO] No snapshot found. Creating initial snapshot."
-        cp employees.csv output/archives/last_employees.csv
-    else
-        echo "[INFO] Snapshot already exists."
+# ------------------------------------------------------
+init_snapshot() {
+    if [ ! -f "$SNAPSHOT" ]; then
+        cp employees.csv "$SNAPSHOT"
     fi
 }
 
-# Detect added, removed and terminated employees
+# ------------------------------------------------------
+# Detect added, removed, and terminated employees
+# ------------------------------------------------------
 detect_changes() {
-    echo "[INFO] Detecting changes..."
 
     echo "username,department" > output/added_users.csv
     echo "username,department" > output/removed_users.csv
     echo "username,department" > output/terminated_users.csv
 
-    # ADDED USERS
-    tail -n +2 employees.csv | while IFS=',' read -r id username name dept status; do
-        if ! awk -F',' -v u="$username" '$2==u {found=1} END{exit !found}' output/archives/last_employees.csv; then
+    # Added users
+    while IFS=',' read -r id username name dept status; do
+        if [ "$id" = "emp_id" ]; then
+            continue
+        fi
+
+        if ! grep -q ",$username," "$SNAPSHOT"; then
             if [ "$status" = "active" ]; then
                 echo "$username,$dept" >> output/added_users.csv
             fi
         fi
-    done
+    done < employees.csv
 
-    # REMOVED USERS
-    tail -n +2 output/archives/last_employees.csv | while IFS=',' read -r id username name dept status; do
-        if ! awk -F',' -v u="$username" '$2==u {found=1} END{exit !found}' employees.csv; then
+    # Removed users
+    while IFS=',' read -r id username name dept status; do
+        if [ "$id" = "emp_id" ]; then
+            continue
+        fi
+
+        if ! grep -q ",$username," employees.csv; then
             echo "$username,$dept" >> output/removed_users.csv
         fi
-    done
+    done < "$SNAPSHOT"
 
-    # TERMINATED USERS
-    tail -n +2 employees.csv | while IFS=',' read -r id username name dept status; do
+    # Terminated users
+    while IFS=',' read -r id username name dept status; do
+        if [ "$id" = "emp_id" ]; then
+            continue
+        fi
+
         if [ "$status" = "terminated" ]; then
             echo "$username,$dept" >> output/terminated_users.csv
         fi
-    done
+    done < employees.csv
 }
 
-# Create Linux user for active employees
-create_linux_user() {
-    local username="$1"
-    local department="$2"
+# ------------------------------------------------------
+# Onboard new active employees
+# ------------------------------------------------------
+onboard_users() {
+    while IFS=',' read -r username dept; do
+        if [ "$username" = "username" ]; then
+            continue
+        fi
 
-    if id "$username" &>/dev/null; then
-        echo "[INFO] $username already exists, skipping."
+        if id "$username" &>/dev/null; then
+            continue
+        fi
+
+        if ! getent group "$dept" >/dev/null; then
+            sudo groupadd "$dept"
+        fi
+
+        sudo useradd -m -g "$dept" "$username"
+    done < output/added_users.csv
+}
+
+# ------------------------------------------------------
+# Archive user's home directory as tar.gz
+# ------------------------------------------------------
+archive_home_folder() {
+    user=$1
+    home="/home/$user"
+
+    if [ ! -d "$home" ]; then
+        echo "[WARN] Home directory not found for $user"
         return
     fi
 
-    if ! getent group "$department" >/dev/null; then
-        sudo groupadd "$department"
-    fi
-
-    sudo useradd -m -g "$department" "$username"
-    echo "[INFO] Created user: $username"
+    tar -czf "output/archives/${user}.tar.gz" -C /home "$user"
 }
 
-# Onboard active employees
-onboard_active_employees() {
-    echo "[INFO] Onboarding active employees..."
+# ------------------------------------------------------
+# Lock user and archive home directory
+# ------------------------------------------------------
+offboard_user() {
+    user=$1
 
-    tail -n +2 employees.csv | while IFS=',' read -r id username name dept status; do
-        if [ "$status" = "active" ]; then
-            create_linux_user "$username" "$dept"
+    if id "$user" &>/dev/null; then
+        sudo usermod -L "$user"
+    fi
+
+    archive_home_folder "$user"
+}
+
+# ------------------------------------------------------
+# Offboard removed and terminated users
+# ------------------------------------------------------
+offboard_users() {
+
+    # Removed users
+    while IFS=',' read -r username dept; do
+        if [ "$username" != "username" ]; then
+            offboard_user "$username"
         fi
-    done
+    done < output/removed_users.csv
+
+    # Terminated users
+    while IFS=',' read -r username dept; do
+        if [ "$username" != "username" ]; then
+            offboard_user "$username"
+        fi
+    done < output/terminated_users.csv
 }
 
-# Update snapshot after processing
+# ------------------------------------------------------
+# Update snapshot
+# ------------------------------------------------------
 update_snapshot() {
-    echo "[INFO] Updating snapshot..."
-
-    mkdir -p output/archives
-    rm -f output/archives/last_employees.csv
-
-    if cp employees.csv output/archives/last_employees.csv; then
-        echo "[INFO] Snapshot updated successfully."
-    else
-        echo "[ERROR] Snapshot update failed!" >&2
-        exit 1
-    fi
+    cp employees.csv "$SNAPSHOT"
 }
 
-# MAIN FUNCTION (ORDER IS CRITICAL)
+# ------------------------------------------------------
+# MAIN
+# ------------------------------------------------------
 main() {
-    init_snapshot_if_needed
+    init_snapshot
     detect_changes
-    onboard_active_employees
+    onboard_users
+    offboard_users
     update_snapshot
+
+    echo "Process Completed."
 }
 
-main "$@"
+main
