@@ -92,14 +92,14 @@ using the command below:
 
 chmod +x employee_lifecycle_sync.sh
 
-Essential Things and Checks
+#Essential Things and Checks
 
-This script has undergone rigorous testing under multiple conditions including
+-This script has undergone rigorous testing under multiple conditions including
 adding new users, deleting current users, handling deactivated users, and
 manipulating their status change, among others.
 
-Essentially, it means that on re-executing the script just as it is, without
+-Essentially, it means that on re-executing the script just as it is, without
 changing employees.csv, nothing will happen twice.
 
-Also, all old user home directories are time-stamped for their creation, and
+-Also, all old user home directories are time-stamped for their creation, and
 unique user groups are created without duplication.
