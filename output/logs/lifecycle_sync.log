@@ -1,0 +1,79 @@
+2025-12-20 16:29:54  First run detected. Creating initial snapshot.
+2025-12-20 16:29:54  Onboarding phase started.
+2025-12-20 16:29:54  User samed.hacar already exists, ensuring group membership.
+2025-12-20 16:29:54  User melih.dal already exists, ensuring group membership.
+2025-12-20 16:29:54  User gokce.ture already exists, ensuring group membership.
+2025-12-20 16:29:54  User arda already exists, ensuring group membership.
+2025-12-20 16:29:54  User burak.yol already exists, ensuring group membership.
+2025-12-20 16:29:54  Offboarding phase started.
+2025-12-20 16:29:54  Locking user account: ahmet.ali
+2025-12-20 16:29:54  Archiving home of ahmet.ali to output/archives/ahmet.ali_20251220_162954.tar.gz
+2025-12-20 16:29:54  User ahmet.test does not exist on system, skipping.
+2025-12-20 16:29:54  User ayse.elma does not exist on system, skipping.
+2025-12-20 16:29:54  Locking user account: kadir.clsgn
+2025-12-20 16:29:54  Archiving home of kadir.clsgn to output/archives/kadir.clsgn_20251220_162954.tar.gz
+2025-12-20 16:29:54  Locking user account: samira.cecen
+2025-12-20 16:29:54  Archiving home of samira.cecen to output/archives/samira.cecen_20251220_162954.tar.gz
+2025-12-20 16:29:54  Manager report generated: output/reports/manager_update_20251220_162954.txt
+2025-12-20 16:29:54  Updating snapshot file.
+2025-12-20 16:32:03  Detecting changes compared to last snapshot.
+2025-12-20 16:32:03  Onboarding phase started.
+2025-12-20 16:32:03  Creating user: nima.hoca (group: hr)
+2025-12-20 16:32:03  Offboarding phase started.
+2025-12-20 16:32:03  User ahmet.test does not exist on system, skipping.
+2025-12-20 16:32:03  Locking user account: arda
+2025-12-20 16:32:03  Archiving home of arda to output/archives/arda_20251220_163203.tar.gz
+2025-12-20 16:32:03  User ayse.elma does not exist on system, skipping.
+2025-12-20 16:32:03  Locking user account: kadir.clsgn
+2025-12-20 16:32:03  Archiving home of kadir.clsgn to output/archives/kadir.clsgn_20251220_163203.tar.gz
+2025-12-20 16:32:03  Locking user account: samira.cecen
+2025-12-20 16:32:03  Archiving home of samira.cecen to output/archives/samira.cecen_20251220_163203.tar.gz
+2025-12-20 16:32:03  Manager report generated: output/reports/manager_update_20251220_163203.txt
+2025-12-20 16:32:03  Updating snapshot file.
+2025-12-20 16:34:00  Detecting changes compared to last snapshot.
+2025-12-20 16:34:00  Onboarding phase started.
+2025-12-20 16:34:00  Offboarding phase started.
+2025-12-20 16:34:00  Locking user account: arda
+2025-12-20 16:34:00  Archiving home of arda to output/archives/arda_20251220_163400.tar.gz
+2025-12-20 16:34:00  Locking user account: kadir.clsgn
+2025-12-20 16:34:00  Archiving home of kadir.clsgn to output/archives/kadir.clsgn_20251220_163400.tar.gz
+2025-12-20 16:34:00  Locking user account: samira.cecen
+2025-12-20 16:34:00  Archiving home of samira.cecen to output/archives/samira.cecen_20251220_163400.tar.gz
+2025-12-20 16:34:00  Manager report generated: output/reports/manager_update_20251220_163400.txt
+2025-12-20 16:34:00  Updating snapshot file.
+2025-12-20 16:35:06  Detecting changes compared to last snapshot.
+2025-12-20 16:35:06  Onboarding phase started.
+2025-12-20 16:35:06  Offboarding phase started.
+2025-12-20 16:35:06  Locking user account: arda
+2025-12-20 16:35:07  Archiving home of arda to output/archives/arda_20251220_163507.tar.gz
+2025-12-20 16:35:07  Locking user account: burak.yol
+2025-12-20 16:35:07  Archiving home of burak.yol to output/archives/burak.yol_20251220_163507.tar.gz
+2025-12-20 16:35:07  Locking user account: kadir.clsgn
+2025-12-20 16:35:07  Archiving home of kadir.clsgn to output/archives/kadir.clsgn_20251220_163507.tar.gz
+2025-12-20 16:35:07  Locking user account: samira.cecen
+2025-12-20 16:35:07  Archiving home of samira.cecen to output/archives/samira.cecen_20251220_163507.tar.gz
+2025-12-20 16:35:07  Manager report generated: output/reports/manager_update_20251220_163507.txt
+2025-12-20 16:35:07  Updating snapshot file.
+2025-12-20 16:35:48  Detecting changes compared to last snapshot.
+2025-12-20 16:35:48  Onboarding phase started.
+2025-12-20 16:35:48  Offboarding phase started.
+2025-12-20 16:35:48  Locking user account: arda
+2025-12-20 16:35:48  Archiving home of arda to output/archives/arda_20251220_163548.tar.gz
+2025-12-20 16:35:48  Locking user account: kadir.clsgn
+2025-12-20 16:35:48  Archiving home of kadir.clsgn to output/archives/kadir.clsgn_20251220_163548.tar.gz
+2025-12-20 16:35:48  Locking user account: samira.cecen
+2025-12-20 16:35:48  Archiving home of samira.cecen to output/archives/samira.cecen_20251220_163548.tar.gz
+2025-12-20 16:35:48  Manager report generated: output/reports/manager_update_20251220_163548.txt
+2025-12-20 16:35:48  Updating snapshot file.
+2025-12-20 16:36:35  Detecting changes compared to last snapshot.
+2025-12-20 16:36:35  Onboarding phase started.
+2025-12-20 16:36:35  Offboarding phase started.
+2025-12-20 16:36:35  Locking user account: arda
+2025-12-20 16:36:35  Archiving home of arda to output/archives/arda_20251220_163635.tar.gz
+2025-12-20 16:36:35  User ayse.elma does not exist on system, skipping.
+2025-12-20 16:36:35  Locking user account: melih.dal
+2025-12-20 16:36:35  Archiving home of melih.dal to output/archives/melih.dal_20251220_163635.tar.gz
+2025-12-20 16:36:35  Locking user account: samira.cecen
+2025-12-20 16:36:35  Archiving home of samira.cecen to output/archives/samira.cecen_20251220_163635.tar.gz
+2025-12-20 16:36:35  Manager report generated: output/reports/manager_update_20251220_163635.txt
+2025-12-20 16:36:35  Updating snapshot file.

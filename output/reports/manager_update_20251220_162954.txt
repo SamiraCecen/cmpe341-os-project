@@ -1,0 +1,34 @@
+Manager Employee Update
+Timestamp: 2025-12-20 16:29:54
+Mode: LIVE
+
+Summary
+--------
+Added employees (active): 5
+Removed employees:        0
+Offboarded by status:     5
+
+Added employees (username, department)
+--------------------------------------
+samed.hacar,it
+melih.dal,data
+gokce.ture,it
+arda,finance
+burak.yol,marketing
+
+Removed employees (username, department)
+----------------------------------------
+
+Terminated employees processed by status
+----------------------------------------
+samira.cecen,finance
+kadir.clsgn,hr
+ayse.elma,data
+ahmet.ali,data
+ahmet.test,it
+
+Paths
+-----
+Log file       : output/logs/lifecycle_sync.log
+Archives folder: output/archives
+Snapshot file  : output/last_employees.csv

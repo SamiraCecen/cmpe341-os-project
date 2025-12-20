@@ -1,0 +1,28 @@
+Manager Employee Update
+Timestamp: 2025-12-20 16:35:07
+Mode: LIVE
+
+Summary
+--------
+Added employees (active): 0
+Removed employees:        1
+Offboarded by status:     3
+
+Added employees (username, department)
+--------------------------------------
+
+Removed employees (username, department)
+----------------------------------------
+burak.yol,marketing
+
+Terminated employees processed by status
+----------------------------------------
+samira.cecen,finance
+kadir.clsgn,hr
+arda,finance
+
+Paths
+-----
+Log file       : output/logs/lifecycle_sync.log
+Archives folder: output/archives
+Snapshot file  : output/last_employees.csv
