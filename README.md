@@ -2,34 +2,32 @@
 CMPE 341 - OPERATING SYSTEMS(Program in Python) Code for Project 2 Task 4 and onwards: #STUDENTS ARE TO COMPLETE THIS PORTION AS THEIR PROJECT$form of a file.
 
 Employee Lifecycle Project
-This project is implemented for the course CMPE341 Operating Systems.
-It is for managing employee account details on a Linux system and grabbing them from a CSV file.
-The script reads employees. csv, compares to a previous copy and undertakes the actions:
-Onboards new active employees
-Locks and archives inactive employees
-Detects removed employees
-Retains its state information in a snapshot file.
-Issue such as reports and logs per each run
-The idea is to somehow sync HR records with Linux user accounts in a reproducible fashion.
+This project is implemented for the course CMPE341 Operating Systems. It deals with employee account details management on the Linux system and getting them from a CSV file. 
+The script reads employees.csv, compares it with a previous copy, and performs the following actions:
+Onboard active new employees.
+Lock and archiving of inactive employees.
+Detect removed employees.
+Maintain a snapshot file with its state information.
+Issue such as reports and logs every run.
+Somehow synchronize the HR records and the Linux user accounts in a reproducible manner.
 
 
- How It Works
- The employees file is read and parsed:getValue((Name,Age,Job,)):normal(Age,Position):time(Weekday,HStart,,HEnd) the weight for normalisation. csv.
- It check the present file with output/last_employees. csv`.
- Then you can figure out the changes with the help of the comm command:
- New users: Exist in the current CSV but do not exist in snapshot.
- Deleted users: are in the snapshot but are not listed in the current CSV
- Terminated users: still appearing, but the status is "terminated"
- Added users are onboarded:
- Added creation of a Linux group if it does not exist
- a new user is added to the group
- When a user is deleted or deactivated, that user has been offboarded:
- Their account is locked
- Their home directory is archived in output/archives/
- A manager report is generated for every run.
- Logs are written to `output/logs/lifecycle_sync.log`.
- The snapshot file updates for the next run.
-
+How it works 
+The employees file is read and parsed:getValue((Name,Age,Job,)):normal(Age,Position):time(Weekday,HStart,,HEnd) the weight for normalisation. csv.
+It checks the present file with output/last_employees.csv.
+From this point forward the changes can be assessed using the comm command.
+New users: Exist in the current CSV but do not exist in snapshot 
+Deleted users: are in the snapshot but are not listed in the current CSV 
+Terminated users: still appearing but with a status of "terminated"
+Users added are onboarded:
+Birthday Party: User added to Linux group if it does not exist 
+New User added to Group 
+When users are deleted or deactivated, they have been off-boarded: 
+Account Is Locked 
+Home Directory Is Archived in output/archives/ 
+For every run, a management report is generated. 
+Logs are written to `output/logs/lifecycle_sync.log`. 
+In the snapshot file, the next run will be updated.
 ---
 
 ## Files and Folders Created
@@ -48,31 +46,31 @@ output/
 ```
 ---
 
-The `employees.csv` file is structured to include the following fields: `employee_id`, `username`, `name_surname`, `department`, and `status`.
+It contains employee_id, username, name_surname, department, and status in employees.csv.
 
-The `status` field accepts two primary values:
-*   **active**: This indicates that an account should be present or newly established.
-*   **terminated**: This signifies that an account should be deactivated and archived.
+The status field has only two values.
+* **active**: It means that the account should be open or newly created.
+* AN ACCOUNT MAY CHANGE FROM ACTIVE TO TERMINATED, MEANS ACCOUNT PUT OFF FOR REALISE, BUT FOR USANCE PERIOD.
 
-***
+***.
 
-### Executing the Script
+Running the Script.
 
-Before execution, the `employee_lifecycle_sync.sh` script must be granted executable permissions using the command:
-`chmod +x employee_lifecycle_sync.sh`
+Before executing employee_lifecycle_sync.sh, give the file execute permission using the command below.
+Give execute permission to file employee_lifecycle_sync.sh
 
-Once permissions are set, the script can be initiated by running:
-`./employee_lifecycle_sync.sh`
+After the permissions have been set, the script can be initiated by running it
+`./employee_lifecycle_sync.sh`.
 
-If the `employees.csv` file contains no modifications, the generated report will reflect a zero change count. Conversely, if alterations are detected, the system will proceed with the appropriate onboarding or offboarding sequences.
+The report will indicate zero changes if the employees.csv file is not modified. The system will perform relevant onboarding or offboarding if any changes are noted.
 
-***
+***.
 
-### Important Considerations and Verification
+Essential Things and Checks. 
 
-This script has undergone comprehensive testing across a range of scenarios, including the addition of new user accounts, the removal of existing users, the management of terminated accounts, and various status adjustments.
+This script has undergone rigorous testing under multiple conditions including adding new users, deleting current users, handling deactivated users, and manipulating their status change, among others.
 
-A key feature is that re-executing the script without any modifications to `employees.csv` will not result in redundant actions. Furthermore, archived user home directories are automatically timestamped for precise record-keeping, and user groups are established uniquely, preventing any duplication.
+Essentially, it means that on re-executing the script just as it is, without changing `employees.csv`, nothing will happen twice. Also, all old user home directories are time-stamped for their creation, and unique user groups are created without duplication.
 
-This project demonstrates practical Linux scripting:
-CSV parsing, account automation, archiving, and logging.
+This is a great project that shows a practical application of Linux Scripting.
+Processing CSV files, automating accounts, storage and logging.
