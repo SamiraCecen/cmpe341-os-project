@@ -39,15 +39,17 @@ The goal is to synchronize HR records with Linux user accounts in a repeatable w
 ## Files and Folders Created
 
 The script automatically builds the following structure:
+
+```
 output/
 ├── last_employees.csv
 ├── logs/
-│ └── lifecycle_sync.log
+│   └── lifecycle_sync.log
 ├── reports/
-│ └── manager_update_*.txt
+│   └── manager_update_*.txt
 └── archives/
-└── *.tar.gz
-
+    └── *.tar.gz
+```
 ---
 
 ## CSV Format
