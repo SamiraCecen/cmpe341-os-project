@@ -38,7 +38,7 @@ From this point forward the changes can be assessed using the `comm` command.
 
 # Users added are onboarded
 
-- Birthday Party: User added to Linux group if it does not exist  
+- User added to Linux group if it does not exist  
 - New User added to Group  
 
 ---
