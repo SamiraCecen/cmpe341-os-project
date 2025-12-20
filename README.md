@@ -28,7 +28,7 @@ Home Directory Is Archived in output/archives/
 For every run, a management report is generated. 
 Logs are written to `output/logs/lifecycle_sync.log`. 
 In the snapshot file, the next run will be updated.
----
+
 
 ## Files and Folders Created
 
@@ -74,3 +74,6 @@ Essentially, it means that on re-executing the script just as it is, without cha
 
 This is a great project that shows a practical application of Linux Scripting.
 Processing CSV files, automating accounts, storage and logging.
+
+
+
