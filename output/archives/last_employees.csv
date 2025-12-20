@@ -3,4 +3,6 @@ employee_id,username,name_surname,department,status
 10002,kadir.clsgn,Kadircan Calisgan,hr,active
 10003,samed.hacar,Samed Hacar,it,active
 10004,ayse.elma,Ayse Elma,data,terminated
-10005,kal.pel,Pelin Kal,it,active
+10005,melih.dal,Melih Dal,data,active
+10006,gokce,Gokce Soylu,it,active
+10007,mustafa.acar,Mustafa Acar,it,active
